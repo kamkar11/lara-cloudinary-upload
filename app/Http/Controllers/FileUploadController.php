@@ -10,4 +10,12 @@ class FileUploadController extends Controller
     {
         return view('upload');
     }
+
+    public function storeUploads(Request $request)
+    {
+        $request->file('file')->store('images');
+
+        return back()
+            ->with('success', 'File uploaded successfully');
+    }
 }
